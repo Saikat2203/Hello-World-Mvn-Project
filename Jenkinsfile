@@ -9,7 +9,7 @@ pipeline {
         }
         stage('git-clone') {
             steps {
-                sh 'git clone "https://github.com/itaifrenkel/java-hello-world-webapp.git"'
+                //sh 'git clone "https://github.com/itaifrenkel/java-hello-world-webapp.git"'
             //git 'https://github.com/itaifrenkel/java-hello-world-webapp.git'
             }
         }
