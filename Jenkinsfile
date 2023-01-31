@@ -40,6 +40,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
+                    pwd
                     mvn clean install
                 '''
             }
