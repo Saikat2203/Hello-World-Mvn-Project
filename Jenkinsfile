@@ -16,10 +16,10 @@ pipeline {
         stage('Check for Maven') {
             steps {
                 sh '''
-                    mvn -version
                     echo $JAVA_HOME
                     echo $MAVEN_HOME
                     echo $M2_HOME
+                    mvn -version
                     '''
             }
         }
