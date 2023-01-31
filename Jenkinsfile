@@ -31,13 +31,13 @@ pipeline {
                 ls'''
             }
         }
-        stage('Change directory') {
-            steps {
-                sh ''' cd /var/lib/jenkins/workspace/Mvn_Web_Git_Pipeline/java-hello-world-webapp/
-                echo "Files in java-hello-world-webapp"
-                ls '''
-            }
-        }
+        // stage('Change directory') {
+        //     steps {
+        //         sh ''' cd /var/lib/jenkins/workspace/Mvn_Web_Git_Pipeline/java-hello-world-webapp/
+        //         echo "Files in java-hello-world-webapp"
+        //         ls '''
+        //     }
+        // }
         stage('Build') {
             steps {
                 sh '''
@@ -46,6 +46,16 @@ pipeline {
                     mvn clean install
                 '''
             }
+        }
+    }
+    post {
+        success {
+            echo 'Pipeline built successfully!!!'
+            deploy adapters: [tomcat8(credentialsId: '408a3437-9232-4f6c-b8a1-31349dbef523', \
+            path: '', url: 'http://13.232.105.14:8080')], contextPath: 'helloWorldWebApp', war: '**/*.war'
+        }
+        failure {
+            echo 'Pipeline broken!!!'
         }
     }
 }
