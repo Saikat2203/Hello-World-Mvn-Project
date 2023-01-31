@@ -1,8 +1,8 @@
 pipeline {
     agent any
-    tools {
-        maven 'mvn'
-    }
+    // tools {
+    //     maven 'mvn'
+    // }
     stages {
         stage('git-checkout') {
             steps {
@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Change directory') {
             steps {
-                sh ''' cd /var/lib/jenkins/workspace/Mvn_Web_Git_Pipeline/java-hello-world-webapp//
+                sh ''' cd /var/lib/jenkins/workspace/Mvn_Web_Git_Pipeline/java-hello-world-webapp/
                 echo "Files in java-hello-world-webapp"
                 ls '''
             }
@@ -40,6 +40,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
+                    cd /var/lib/jenkins/workspace/Mvn_Web_Git_Pipeline/java-hello-world-webapp/
                     pwd
                     mvn clean install
                 '''
