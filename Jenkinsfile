@@ -52,7 +52,8 @@ pipeline {
         success {
             echo 'Pipeline built successfully!!!'
             deploy adapters: [tomcat8(credentialsId: '408a3437-9232-4f6c-b8a1-31349dbef523', \
-            path: '', url: 'http://13.232.105.14:8080')], contextPath: 'helloWorldWebApp', war: '**/*.war'
+            path: '', url: 'http://13.232.105.14:8080')], contextPath: 'helloWorldWebApp', \
+            onFailure: false, war: '**/*.war'
         }
         failure {
             echo 'Pipeline broken!!!'
