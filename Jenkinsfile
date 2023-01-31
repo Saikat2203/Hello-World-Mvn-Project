@@ -13,6 +13,16 @@ pipeline {
         //             //git 'https://github.com/itaifrenkel/java-hello-world-webapp.git'
         //             }
         //         }
+        stage('Check for Maven') {
+            steps {
+                sh '''
+                    mvn -version
+                    echo $JAVA_HOME
+                    echo $MAVEN_HOME
+                    echo $M2_HOME
+                    '''
+            }
+        }
         stage('Check Files') {
             steps {
                 sh ''' echo 'In Check Files stage'
