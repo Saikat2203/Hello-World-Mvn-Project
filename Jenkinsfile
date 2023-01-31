@@ -19,7 +19,6 @@ pipeline {
                     echo "$JAVA_HOME"
                     echo "$MAVEN_HOME"
                     echo "$M2_HOME"
-                    mvn -version
                     '''
             }
         }
