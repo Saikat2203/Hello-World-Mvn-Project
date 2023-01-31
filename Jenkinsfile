@@ -22,13 +22,13 @@ pipeline {
         stage('Change directory') {
             steps {
                 sh ''' cd java-hello-world-webapp/
+                echo "Files in java-hello-world-webapp"
                 ls '''
             }
         }
         stage('Build') {
             steps {
                 sh '''
-                    cd java-hello-world-webapp/
                     mvn package
                 '''
             }
