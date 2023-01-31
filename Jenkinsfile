@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Change directory') {
             steps {
-                sh ''' cd java-hello-world-webapp/
+                sh ''' cd /var/lib/jenkins/workspace/Mvn_Web_Git_Pipeline/java-hello-world-webapp//
                 echo "Files in java-hello-world-webapp"
                 ls '''
             }
