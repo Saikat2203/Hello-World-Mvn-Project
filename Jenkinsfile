@@ -15,11 +15,9 @@ pipeline {
         //         }
         stage('Check for Maven') {
             steps {
-                // sh '''
-                    echo $JAVA_HOME
-                    echo $MAVEN_HOME
-                    echo $M2_HOME
-                    // '''
+                sh ''' echo '$JAVA_HOME'
+                echo '$MAVEN_HOME'
+                echo '$M2_HOME' '''
             }
         }
         stage('Check Files') {
